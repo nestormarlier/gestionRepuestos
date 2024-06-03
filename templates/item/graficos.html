@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Repuestos</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    
+    <script type="text/javascript">
+        {% comment %} var repuestos_cambaceres_criticos = {{ repuestos_cambaceres_criticos|safe }} {% endcomment %}
+        var totalRepuestos = {{ total_repuestos|safe }};
+        var totalesCambaceres = {{ totales_cambaceres|safe }};
+        var totalesQuilmes = {{ totales_quilmes|safe }};
+        var totalesRivadavia = {{ totales_rivadavia|safe }};
+    </script>
+    
+    <!-- Incluye los archivos CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluye los archivos CSS de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container-fluid mt-5">
+        <a href="{% url 'admin:index' %}" class="text-decoration-none">
+            <h1 class="display-4">
+                <i class="fas fa-cogs text-primary"></i> Sistema de Gestión de Repuestos
+            </h1>
+        </a>
+    </div>
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            Repuestos de todas las plantas.
+        </p>
+      </figure>
+
+    <script src="{% static 'js/main_v2.js' %}"></script>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

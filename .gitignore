@@ -1,0 +1,45 @@
+# Entorno virtual (virtualenv o venv)
+venv/
+env/
+
+# Archivos y directorios generados por Django
+__pycache__/
+*.pyc
+*.pyo
+*.db.sqlite3
+*.log
+*.pot
+*.pyc
+
+# Directorio de configuración local (por ejemplo, settings.py local)
+local_settings.py
+
+# Directorio de carga de medios (archivos de usuario cargados)
+media/
+
+# Directorio de archivos estáticos recopilados
+staticfiles/
+
+# Archivo de registro de errores
+error.log
+
+# Archivo de configuración local (por ejemplo, .env para variables de entorno)
+.env
+
+# Archivo de claves secretas (por ejemplo, .secrets)
+.secrets
+
+# Archivo de base de datos de desarrollo (por ejemplo, db.sqlite3)
+db.sqlite3
+
+# Archivos de migraciones generados por Django
+*/migrations/
+
+# Entorno de desarrollo (por ejemplo, archivos de la base de datos)
+db.sqlite3
+
+# Directorio de cache de Python (si se usa)
+__pycache__/
+
+# Entorno de desarrollo (por ejemplo, archivos de la base de datos)
+db.sqlite3
