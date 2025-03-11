@@ -10,7 +10,7 @@ class StockAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('repuesto_id_css','descripcion', 'grupo_asociado', 'stock_status_css','stock_minimo')
     readonly_fields = ('modified_by',)
     search_fields = ('repuesto_id', 'grupo_asociado__nombre')
-    list_filter = ('repuesto_id','grupo_asociado__nombre',)
+    list_filter = ('grupo_asociado__nombre','repuesto_id',)
         # Usar fields para definir el orden de los campos
     fieldsets = (
         ('Información del repuesto', {
