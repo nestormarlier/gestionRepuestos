@@ -38,6 +38,16 @@
             Repuestos de todas las plantas.
         </p>
       </figure>
+      {% for item in items %}
+      <div>
+        <p>{{ item.description }}</p>
+        {% if item.imagen %}
+        <img src="{{ item.imagen.url }}" style="max-width: 200px;"/>
+        {% else %}
+        <p>Sin imagen adjunta</p>
+        {% endif %}
+    </div>
+        {% endfor %}
 
     <script src="{% static 'js/main_v2.js' %}"></script>
     <link href="{% static 'css/main.css' %}" rel="stylesheet">

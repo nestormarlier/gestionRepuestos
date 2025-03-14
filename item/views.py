@@ -4,6 +4,7 @@ from .models import Stock, Grupo_Asociado
 
 def grafico(request):
     repuestos = Stock.objects.all()
+    item = Stock.objects.all()
     total_repuestos=repuestos.count()
 
     totales_cambaceres = Stock.objects.filter(grupo_asociado__planta='CAMBACERES', stock_real__lt=F('stock_minimo')).count()
@@ -24,5 +25,6 @@ def grafico(request):
         'repuestos_quilmes': repuestos_quilmes,
         'totales_quilmes': totales_quilmes,
         'repuestos_rivadavia': repuestos_rivadavia,
-        'totales_rivadavia': totales_rivadavia
+        'totales_rivadavia': totales_rivadavia,
+        'item': item,
     })

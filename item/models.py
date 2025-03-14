@@ -31,6 +31,7 @@ class Stock(models.Model):
     punto_de_reposicion = models.IntegerField(default=0, verbose_name='Punto de reposición')
     ubicacion_fisica = models.CharField(max_length=150, null=True, blank=True)
     modified_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    imagen = models.ImageField(upload_to='tareas_imagenes/', null=True, blank=True, verbose_name='Imagen Adjunta')
 
     class Meta:
         verbose_name = 'Stock de Repuesto'

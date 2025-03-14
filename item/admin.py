@@ -5,16 +5,15 @@ from django.core.exceptions import ValidationError
 from django.contrib import messages
 from import_export.admin import ImportExportModelAdmin
 
-
 class StockAdmin(ImportExportModelAdmin,admin.ModelAdmin):
-    list_display = ('repuesto_id_css','descripcion', 'grupo_asociado', 'stock_status_css','stock_minimo')
+    list_display = ('repuesto_id_css','descripcion', 'grupo_asociado', 'stock_status_css','stock_minimo','mostrar_imagen','imagen')
     readonly_fields = ('modified_by',)
     search_fields = ('repuesto_id', 'grupo_asociado__nombre')
     list_filter = ('grupo_asociado__nombre','repuesto_id',)
         # Usar fields para definir el orden de los campos
     fieldsets = (
         ('Información del repuesto', {
-            'fields': ('repuesto_id', 'descripcion','grupo_asociado','stock_real')
+            'fields': ('repuesto_id', 'descripcion','grupo_asociado','stock_real', 'imagen')
         }),
         ('Niveles de stock', {
             'fields': ('stock_minimo', 'stock_maximo', 'punto_de_reposicion'),
@@ -61,6 +60,13 @@ class StockAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     stock_status_css.allow_tags = True
     stock_status_css.short_description = 'Stock Real'
     stock_status_css.admin_order_field = 'stock_real'
+
+    def mostrar_imagen(self, obj):
+        if obj.imagen:
+            return format_html('<img src="{}" style="max-width: 100px; max-height: 100px;" />', obj.imagen.url)
+        return "Sin imagen"
+
+    mostrar_imagen.short_description = 'Imagen Adjunta'
 
 ###################### color Repuesto ID ###########################
 
