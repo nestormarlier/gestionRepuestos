@@ -5,11 +5,27 @@ from django.core.exceptions import ValidationError
 from django.contrib import messages
 from import_export.admin import ImportExportModelAdmin
 
+################################ FILTRO POR PLANTA ################################
+
+class PlantaListFilter(admin.SimpleListFilter):
+    title = 'Planta'
+    parameter_name = 'planta'
+
+    def lookups(self, request, model_admin):
+        return Grupo_Asociado.LOCACION_CHOICES
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(grupo_asociado__planta=self.value())
+        return queryset
+
+################################ FIN FILTRO POR PLANTA ################################
+
 class StockAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('repuesto_id_css','descripcion', 'grupo_asociado', 'stock_status_css','stock_minimo','mostrar_imagen','imagen')
     readonly_fields = ('modified_by',)
     search_fields = ('repuesto_id', 'grupo_asociado__nombre')
-    list_filter = ('grupo_asociado__nombre','repuesto_id',)
+    list_filter = (PlantaListFilter,'grupo_asociado__nombre','repuesto_id',)
         # Usar fields para definir el orden de los campos
     fieldsets = (
         ('Información del repuesto', {
