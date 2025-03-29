@@ -14,9 +14,9 @@
     <script type="text/javascript">
         {% comment %} var repuestos_cambaceres_criticos = {{ repuestos_cambaceres_criticos|safe }} {% endcomment %}
         var totalRepuestos = {{ total_repuestos|safe }};
-        var totalesCambaceres = {{ totales_cambaceres|safe }};
-        var totalesQuilmes = {{ totales_quilmes|safe }};
-        var totalesRivadavia = {{ totales_rivadavia|safe }};
+        var totalesPlantaA = {{ totales_plantaA|safe }};
+        var totalesPlantaB = {{ totales_plantaB|safe }};
+        var totalesPlantaC = {{ totales_plantaC|safe }};
     </script>
     
     <!-- Incluye los archivos CSS de Bootstrap -->
@@ -49,6 +49,8 @@
     </div>
         {% endfor %}
 
+     <!-- Footer -->
+     {% include 'item/footer.html' %}
     <script src="{% static 'js/main_v2.js' %}"></script>
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
   

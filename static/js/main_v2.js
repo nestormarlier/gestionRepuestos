@@ -6,7 +6,7 @@ Highcharts.chart('container', {
     },
     xAxis: {
         categories: [
-            'Cambaceres', 'Quilmes', 'Rivadavia'
+            'Planta A', 'Planta B', 'Planta C'
         ]
     },
     yAxis: {
@@ -26,24 +26,24 @@ Highcharts.chart('container', {
         type: 'column',
         name: '',
         data: [{
-            name: 'Cambaceres',
+            name: 'Planta A',
             color: '#00FF00',
-            y: totalesCambaceres
+            y: totalesPlantaA
         }, {
-            name: 'Quilmes',
+            name: 'Planta B',
             color: 'red',
-            y: totalesQuilmes
+            y: totalesPlantaB
         },
         {
-            name: 'Rivadavia',
+            name: 'Planta C',
             color: 'yellow',
-            y: totalesRivadavia
+            y: totalesPlantaC
         }],
     }, {
         type: 'line',
         step: 'center',
         name: 'Total',
-        data: [totalesCambaceres, totalesQuilmes,totalesRivadavia],
+        data: [totalesPlantaA, totalesPlantaB,totalesPlantaC],
         marker: {
             lineWidth: 2,
             lineColor: Highcharts.getOptions().colors[3],
@@ -53,8 +53,8 @@ Highcharts.chart('container', {
         type: 'pie',
         name: '',
         data: [{
-            name: 'Cambaceres',
-            y: totalesCambaceres,
+            name: 'Planta A',
+            y: totalesPlantaA,
             color: '#00FF00',
             dataLabels: {
                 enabled: true,
@@ -65,12 +65,12 @@ Highcharts.chart('container', {
                 }
             }
         }, {
-            name: 'Quilmes',
-            y: totalesQuilmes,
+            name: 'Planta B',
+            y: totalesPlantaB,
             color: 'red'
         }, {
-            name: 'Rivadavia',
-            y: totalesRivadavia,
+            name: 'Planta C',
+            y: totalesPlantaC,
             color: 'yellow'
         }],
         center: [15, 15],

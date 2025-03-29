@@ -7,24 +7,24 @@ def grafico(request):
     item = Stock.objects.all()
     total_repuestos=repuestos.count()
 
-    totales_cambaceres = Stock.objects.filter(grupo_asociado__planta='CAMBACERES', stock_real__lt=F('stock_minimo')).count()
-    totales_quilmes = Stock.objects.filter(grupo_asociado__planta='QUILMES', stock_real__lt=F('stock_minimo')).count()
-    totales_rivadavia = Stock.objects.filter(grupo_asociado__planta='RIVADAVIA', stock_real__lt=F('stock_minimo')).count()
+    totales_plantaA = Stock.objects.filter(grupo_asociado__planta='PLANTA A', stock_real__lt=F('stock_minimo')).count()
+    totales_plantaB = Stock.objects.filter(grupo_asociado__planta='PLANTA B', stock_real__lt=F('stock_minimo')).count()
+    totales_plantaC = Stock.objects.filter(grupo_asociado__planta='PLANTA C', stock_real__lt=F('stock_minimo')).count()
     
-    repuestos_cambaceres = repuestos.filter(grupo_asociado__planta='CAMBACERES')
+    repuestos_plantaA = repuestos.filter(grupo_asociado__planta='PLANTA A')
     # totales_cambaceres = repuestos.filter(grupo_asociado__planta='CAMBACERES').count()
-    repuestos_quilmes = repuestos.filter(grupo_asociado__planta='QUILMES')
+    repuestos_plantaB = repuestos.filter(grupo_asociado__planta='PLANTA B')
     # totales_quilmes = repuestos.filter(grupo_asociado__planta='QUILMES').count()
-    repuestos_rivadavia = repuestos.filter(grupo_asociado__planta='RIVADAVIA')
+    repuestos_PlantaC = repuestos.filter(grupo_asociado__planta='PLANTA C')
     # totales_rivadavia = repuestos.filter(grupo_asociado__planta='RIVADAVIA').count()
     
     return render(request, 'item/graficos.html', {
         'total_repuestos': total_repuestos,
-        'repuestos_cambaceres': repuestos_cambaceres,
-        'totales_cambaceres': totales_cambaceres,
-        'repuestos_quilmes': repuestos_quilmes,
-        'totales_quilmes': totales_quilmes,
-        'repuestos_rivadavia': repuestos_rivadavia,
-        'totales_rivadavia': totales_rivadavia,
+        'repuestos_plantaA': repuestos_plantaA,
+        'totales_plantaA': totales_plantaA,
+        'repuestos_plantaB': repuestos_plantaB,
+        'totales_plantaB': totales_plantaB,
+        'repuestos_plantaC': repuestos_PlantaC,
+        'totales_plantaC': totales_plantaC,
         'item': item,
     })

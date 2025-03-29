@@ -22,7 +22,7 @@ class PlantaListFilter(admin.SimpleListFilter):
 ################################ FIN FILTRO POR PLANTA ################################
 
 class StockAdmin(ImportExportModelAdmin,admin.ModelAdmin):
-    list_display = ('repuesto_id_css','descripcion', 'grupo_asociado', 'stock_status_css','stock_minimo','mostrar_imagen','imagen')
+    list_display = ('repuesto_id_css','descripcion', 'grupo_asociado', 'stock_status_css','stock_minimo','mostrar_imagen','ubicacion_fisica')
     readonly_fields = ('modified_by',)
     search_fields = ('repuesto_id', 'grupo_asociado__nombre')
     list_filter = (PlantaListFilter,'grupo_asociado__nombre','repuesto_id',)

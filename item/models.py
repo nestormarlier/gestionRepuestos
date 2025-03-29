@@ -5,9 +5,9 @@ import uuid
 
 class Grupo_Asociado(models.Model):
     LOCACION_CHOICES = (
-        ('CAMBACERES', 'Cambaceres'),
-        ('QUILMES', 'Quilmes'),
-        ('RIVADAVIA', 'Rivadavia'),
+        ('PLANTA A', 'PlantaA'),
+        ('PLANTA B', 'PlantaB'),
+        ('PLANTA C', 'PlantaC'),
     )
     nombre = models.CharField(max_length=100, blank=False)
     activo = models.BooleanField(default=True)
